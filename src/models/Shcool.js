@@ -9,13 +9,13 @@ const ShcoolShema = mongoose.Schema({
   director: {
     name: String,
     surname: String,
-    date: { type: Date, default: Date.now } //???
+    date: { type: Date, default: Date.now }
   },
   adress: {
     type: String,
     required: [true, 'Please add adress shcool']
   },
-  teachers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Teacher' }],
-  groups: [{ type: mongoose.Schema.Types.ObjectId }]
+  teachers: Array,
+  groups: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Group' }]
 });
 module.exports = mongoose.model('Shcool', ShcoolShema);
