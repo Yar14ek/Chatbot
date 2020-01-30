@@ -16,6 +16,7 @@ const ShcoolShema = mongoose.Schema({
     required: [true, 'Please add adress shcool']
   },
   teachers: Array,
-  groups: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Group' }]
+  groups: Array,
+  students: Array
 });
 module.exports = mongoose.model('Shcool', ShcoolShema);

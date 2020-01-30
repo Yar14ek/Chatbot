@@ -11,8 +11,8 @@ const StudentShema = mongoose.Schema({
       required: [true, 'Please add a Surname']
     }
   },
-  dateOfBirth: Date
-  //   group:Number//////////////////////////???????
+  dateOfBirth: Date,
+  groupNum: String
 });
 
 module.exports = mongoose.model('Student', StudentShema);

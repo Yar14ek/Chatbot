@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const connectDB = require('../db/db');
 const asyncHandler = require('../middleware/async');
-const ErrorResponse = require('../middleware/errorResponse');
+const ErrorResponse = require('../utils/errorResponse.js');
 const Shcool = require('../models/Shcool');
 
 //@desc    Create new Shcool

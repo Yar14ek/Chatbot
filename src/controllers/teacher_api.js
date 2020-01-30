@@ -3,6 +3,7 @@ const connectDB = require('../db/db');
 const Teacher = require('../models/Teacher');
 const Shcool = require('../models/Shcool');
 const asyncHandler = require('../middleware/async');
+const ErrorResponse = require('../utils/errorResponse');
 
 //@desc    Create new Teacher
 //@rout    POST /shcoolChatbots/teacher/create/:shcoolID
