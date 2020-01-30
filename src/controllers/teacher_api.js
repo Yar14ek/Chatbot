@@ -1,24 +1,24 @@
 const mongoose = require('mongoose');
 const connectDB = require('../db/db');
 const Teacher = require('../models/Teacher');
-const Shcool = require('../models/Shcool');
+const School = require('../models/School');
 const asyncHandler = require('../middleware/async');
 const ErrorResponse = require('../utils/errorResponse');
 
 //@desc    Create new Teacher
-//@rout    POST /shcoolChatbots/teacher/create/:shcoolID
+//@rout    POST /schoolChatbots/teacher/create/:schoolID
 exports.createNewTeacher = asyncHandler(async (req, res, next) => {
   await connectDB();
   const teacher = await Teacher.create(req.body);
 
-  const shcool = await Shcool.findById(req.params.shcoolID);
-  shcool.teachers.push(teacher._id);
-  await shcool.save();
+  const school = await School.findById(req.params.schoolID);
+  school.teachers.push(teacher._id);
+  await school.save();
 
   if (!teacher) {
     return next(new ErrorResponse(`Not found req.body in ${req.body}`, 500));
   }
-  if (!shcool) {
+  if (!school) {
     return next(new ErrorResponse(`Not found id in ${req.params.id}`, 500));
   }
 
@@ -33,7 +33,7 @@ exports.createNewTeacher = asyncHandler(async (req, res, next) => {
 });
 
 //@desc    get teacher information
-//@rout    GET  /shcoolChatbots/teacher/:id
+//@rout    GET  /schoolChatbots/teacher/:id
 exports.getTeacher = asyncHandler(async (req, res, next) => {
   await connectDB();
   const teacher = await Teacher.findById(req.params.id);
@@ -72,7 +72,7 @@ exports.updateTeacher = asyncHandler(async (req, res, next) => {
 });
 
 //@desc    delete Teacher
-//@royt    DELETE /shcoolChatbots/teacher/delete/:id
+// @royt    DELETE /shcoolChatbots/teacher/delete/:id
 exports.deleteTeacher = asyncHandler(async (req, res, next) => {
   await connectDB();
   const teacher = await Teacher.findByIdAndDelete(req.params.id);

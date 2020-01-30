@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const ShcoolShema = mongoose.Schema({
-  shcool_number: {
+const SchoolShema = mongoose.Schema({
+  school_number: {
     unique: true,
     type: Number,
     required: [true, 'Please add a number shcool']
@@ -19,4 +19,4 @@ const ShcoolShema = mongoose.Schema({
   groups: Array,
   students: Array
 });
-module.exports = mongoose.model('Shcool', ShcoolShema);
+module.exports = mongoose.model('School', SchoolShema);
